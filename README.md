@@ -56,7 +56,8 @@ Grafana и loki будут развернуты на сервере SRV туда
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/5a6acd67-9e94-4a48-8c30-8c7f57262c8d)
 
-далее в k8s разворачиваем promtail : команда helm -n loki upgrade --install -- value promtail-config.yaml promtail grafana/promtail
+
+далее в k8s разворачиваем promtail : команда  ``` helm -n loki upgrade --install -- value promtail-config.yaml promtail grafana/promtail```
 
 promtail-config.yaml необходимо указать url для подключения к loki 
 
