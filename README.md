@@ -28,3 +28,60 @@
 
 Самое время положить все возможные конфигурации в Git-репозиторий, если вы этого ещё не сделали.
 ```
+
+В качестве мониторинга лога выбран стек Grafana-Loki-Promtail:
+
+![image](https://github.com/usmanofff/monitoring/assets/74288450/9ba12afd-8f88-4637-82fb-e46be8265d86)
+
+
+Для начала создадим namespace  --loki:
+
+```kubectl create ns loki```
+
+Затем необходимо установить из стека grafana-loki c помощью helm репозитория. Добавляем репозиторий  ``` helm repo add grafana https://grafana.github.io/helm-charts ```
+
+и из всего стека устанавливаем только promtail - агент для сборка и отправки логов в loki.
+
+Grafana и loki будут развернуты на сервере SRV туда promtail будет слать логи нашего преложения. 
+
+В качестве среды запуска Grafana-loki на сервере был выбран docker.
+
+На сервере SRV скачиваем docker-compose.yml   ``` wget https://raw.githubusercontent.com/grafana/loki/v2.3.0/production/docker-compose.yaml -O docker-compose.yaml ```
+
+и запускаем командой ``` docker-compose up -d ``` 
+
+должны запустится сервисы Grafana доступная на 3000 порту и loki доступный на 3100 порту.
+
+![image](https://github.com/usmanofff/monitoring/assets/74288450/5a6acd67-9e94-4a48-8c30-8c7f57262c8d)
+
+далее в k8s разворачиваем promtail : команда helm -n loki upgrade --install -- value promtail-config.yaml promtail grafana/promtail
+
+promtail-config.yaml необходимо указать url для подключения к loki 
+
+config: 
+  clients:
+     - url: http://51.250.84.184/:3100/loki/api/v1/push
+
+     
+Переходим в интерфейс Grafana -- Data Source --- Add new Data Source --- выбираем loki core 
+
+![image](https://github.com/usmanofff/monitoring/assets/74288450/0c364c31-25ac-4449-8280-3372c2346c73)
+
+далее указываем url для подключения к loki 
+
+![image](https://github.com/usmanofff/monitoring/assets/74288450/c0f2272b-5a20-4ae7-8dc2-ee66966f9f8a)
+
+нажимаем save and test 
+
+![image](https://github.com/usmanofff/monitoring/assets/74288450/e5346363-7bfe-47e0-9014-f7ecc31a4070)
+
+далее можно настроить дашборд для логов ``` https://grafana.com/grafana/dashboards/ ```
+
+
+
+
+
+
+
+
+
