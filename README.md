@@ -87,6 +87,7 @@ config:
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/72d9af0f-806a-4119-8912-fa5c9eecedb2)
 
+![image](https://github.com/usmanofff/monitoring/assets/74288450/caa738b3-060c-4b3a-98c3-e1d2f1d981d3)
 
 
 
