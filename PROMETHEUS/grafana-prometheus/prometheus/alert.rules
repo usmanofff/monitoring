@@ -1,0 +1,66 @@
+groups:
+  - name: example
+    rules:
+      - alert: PrometheusTargetMissing
+        expr: up == 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Prometheus target missing (instance {{ $labels.instance }})"
+          description: "A Prometheus target has disappeared. An exporter might be crashed. VALUE = {{ $value }}  LABELS: {{ $labels }}"
+
+      - alert: HostOutOfMemory
+        expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Host out of memory (instance {{ $labels.instance }})
+          description: Node memory is filling up (< 10% left)\n  VALUE = {{ $value }}
+
+    
+      - alert: HostHighCpuLoad
+        expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[2m])) * 100) > 80
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: Host high CPU load (instance {{ $labels.instance }})
+          description: CPU load is > 80%\n  VALUE = {{ $value }}
+
+      - alert: site_is_very_slow
+        expr: sum by (instance) (probe_http_duration_seconds) > 5
+        for: 3m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Warning: Site '{{ $labels.instance }}' is very slow(>3s) for more than 3 minutes"
+          description: "Site {{ $labels.instance }} response for {{ humanize $value}}s"
+      
+      - alert: http_status_code_not_200-299
+        expr: probe_http_status_code <= 199 OR probe_http_status_code >= 300
+        for: 3m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Critical: HTTP status code for the site '{{ $labels.instance }}' isn't 200-299 for more than 3 minutes"
+          description: "HTTP status code is {{ $value }}"
+      
+      - alert: ssl_certificate_expire
+        expr: probe_ssl_earliest_cert_expiry - time() < 86400 *30
+        for: 10m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Warning: SSL certificate will expire soon for the site '{{ $labels.instance }}'"
+          description: "SSL certificate expires in 30 days"
+      
+      - alert: Prometheus has restarted 
+        expr: (time() - node_boot_time_seconds) < 500
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Prometheus has restarted"
+          description: Prometheus has restarted less then 2 min ago    
