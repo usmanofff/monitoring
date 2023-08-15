@@ -42,9 +42,9 @@
 
 ``` helm repo add grafana https://grafana.github.io/helm-charts ```
 
-и из всего стека устанавливаем только promtail - агент для сборка и отправки логов в loki.
+и из всего стека устанавливаем только promtail - агент для сбора и отправки логов в loki.
 
-Grafana и loki будут развернуты на сервере SRV туда promtail будет слать логи нашего преложения. 
+Grafana и loki будут развернуты на сервере SRV туда promtail будет слать логи нашего приложения. 
 
 В качестве среды запуска Grafana-loki на сервере был выбран docker.
 
@@ -91,9 +91,9 @@ config:
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/caa738b3-060c-4b3a-98c3-e1d2f1d981d3)
 
 
-Делее необходимо получать метри с k8s для этого буду использовать prometheus-stack
+Далее необходимо получать метрики с k8s для этого буду использовать prometheus-stack
 
-устанавливаем в кластер подготовленные магнифесты node-exporter и сервиса для открытие доступа. 
+устанавливаем в кластер подготовленные магнифесты node-exporter и сервис для открытие доступа. 
 
 ```kubectl create prometheus && kubectl -n prometheus apply -f /kubernetes-node-exporter ```
 
@@ -117,19 +117,19 @@ config:
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/73b5ca14-7c52-490c-afe5-1865cd6d2f52)
 
-Проверям работу алертов.
+Проверяем работу алертов.
 
 приложение не доступно :
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/77273018-ded0-4a8f-a806-ed151d2b1421)
 
 
-Проверяем опощение в телеграм :
+Проверяем оповещение в телеграм :
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/356647f4-dedf-4149-98da-db14abe9bf5a)
 
 
-
+<h1> На этом ВСЕ !!!! Спасибо !!! </h1> 
 
 
 
