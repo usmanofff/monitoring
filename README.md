@@ -101,6 +101,27 @@ config:
 
 Затем устанавливаем prometheus-stack для docker-compose на сервере. 
 
+понадобится :
+- Alerting manager
+- blackbox
+- prometheus
+
+В prometheus.yaml указываем цели сбора метрик там где установлен node-exporter.
+
+подключаемся к grafana и устанавливаем необходимый дашборд.
+
+По итогу получаем метрики :
+
+![image](https://github.com/usmanofff/monitoring/assets/74288450/0e8235ea-82ab-437a-8687-bbeb8a42e00b)
+
+![image](https://github.com/usmanofff/monitoring/assets/74288450/73b5ca14-7c52-490c-afe5-1865cd6d2f52)
+
+
+
+
+
+
+
 
 
 
