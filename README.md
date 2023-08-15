@@ -95,7 +95,7 @@ config:
 
 устанавливаем в кластер подготовленные магнифесты node-exporter и сервиса для открытие доступа. 
 
-``kubectl create prometheus && kubectl -n prometheus apply -f /kubernetes-node-exporter ```
+```kubectl create prometheus && kubectl -n prometheus apply -f /kubernetes-node-exporter ```
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/ec216924-351f-4d4c-981f-e0ca79db37ee)
 
