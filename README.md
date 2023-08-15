@@ -77,6 +77,14 @@ config:
 
 далее можно настроить дашборд для логов ``` https://grafana.com/grafana/dashboards/ ```
 
+![image](https://github.com/usmanofff/monitoring/assets/74288450/49937d56-e26e-4f88-861a-247a67fc3c09)
+
+Устанавливаем дашборд. 
+
+смотрим логи: 
+
+![image](https://github.com/usmanofff/monitoring/assets/74288450/72d9af0f-806a-4119-8912-fa5c9eecedb2)
+
 
 
 
