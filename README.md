@@ -117,8 +117,11 @@ config:
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/73b5ca14-7c52-490c-afe5-1865cd6d2f52)
 
+Проверям работу алертов.
 
+приложение не доступно :
 
+![image](https://github.com/usmanofff/monitoring/assets/74288450/77273018-ded0-4a8f-a806-ed151d2b1421)
 
 
 
