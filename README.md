@@ -38,8 +38,6 @@
 
 ```kubectl create ns loki```
 
-Затем необходимо установить из стека grafana-loki c помощью helm репозитория. 
-
 Добавляем репозиторий: 
 
 ``` helm repo add grafana https://grafana.github.io/helm-charts ``` из всего стека устанавливаем только promtail - агент для сбора и отправки логов в loki.
