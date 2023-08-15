@@ -124,6 +124,9 @@ config:
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/77273018-ded0-4a8f-a806-ed151d2b1421)
 
 
+Проверяем опощение в телеграм :
+
+![image](https://github.com/usmanofff/monitoring/assets/74288450/356647f4-dedf-4149-98da-db14abe9bf5a)
 
 
 
