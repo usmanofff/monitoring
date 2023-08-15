@@ -29,7 +29,7 @@
 Самое время положить все возможные конфигурации в Git-репозиторий, если вы этого ещё не сделали.
 ```
 
-В качестве мониторинга лога выбран стек Grafana-Loki-Promtail:
+В качестве мониторинга логов выбран стек Grafana-Loki-Promtail:
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/9ba12afd-8f88-4637-82fb-e46be8265d86)
 
