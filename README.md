@@ -35,19 +35,7 @@
 
 Основной стек мониторинга будет распологатся на SRV.
 
-
-Создаем namespace  --loki:
-
-```kubectl create ns loki```
-
-Добавляем репозиторий: 
-
-``` 
-helm repo add grafana https://grafana.github.io/helm-charts
-```
-из всего стека устанавливаем только promtail - агент для сбора и отправки логов в loki.
-
-Grafana и loki будут развернуты на сервере SRV туда promtail будет слать логи нашего приложения. 
+<h2>Настройка сервера</h2>
 
 В качестве среды запуска Grafana-loki на сервере был выбран docker.
 
@@ -58,12 +46,28 @@ wget https://raw.githubusercontent.com/grafana/loki/v2.3.0/production/docker-com
 
 и запускаем командой ``` docker-compose up -d ``` 
 
-должны запустится сервисы Grafana доступная на 3000 порту и loki доступный на 3100 порту.
+должны запустится сервисы Grafana на 3000 порту и loki на 3100 порту.
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/5a6acd67-9e94-4a48-8c30-8c7f57262c8d)
 
+<h2>настройка кластера</h2>
 
-далее в k8s разворачиваем promtail : команда  ``` helm -n loki upgrade --install -- value promtail-config.yaml promtail grafana/promtail```
+В кластере разварачеваем из стека grafana-loki только promtail для сбора и отправки логов.
+
+Создаем namespace  --loki:
+
+```kubectl create ns loki```
+
+добавляем репозиторий: 
+
+``` 
+helm repo add grafana https://grafana.github.io/helm-charts
+```
+разворачиваем promtail : команда: 
+
+``` 
+helm -n loki upgrade --install -- value promtail-config.yaml promtail grafana/promtail
+```
 
 promtail-config.yaml необходимо указать url для подключения к loki 
 
