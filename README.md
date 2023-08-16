@@ -54,7 +54,7 @@ wget https://raw.githubusercontent.com/grafana/loki/v2.3.0/production/docker-com
 
 В кластере разварачеваем из стека grafana-loki только promtail для сбора и отправки логов.
 
-Создаем namespace  --loki:
+Создаем namespace:
 
 ```kubectl create ns loki```
 
