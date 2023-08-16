@@ -69,7 +69,7 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm -n loki upgrade --install -- value promtail-config.yaml promtail grafana/promtail
 ```
 
-promtail-config.yaml необходимо указать url для подключения к loki 
+promtail-config.yaml  
 ```
 config: 
   clients:
