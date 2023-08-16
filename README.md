@@ -63,7 +63,7 @@ wget https://raw.githubusercontent.com/grafana/loki/v2.3.0/production/docker-com
 ``` 
 helm repo add grafana https://grafana.github.io/helm-charts
 ```
-разворачиваем promtail : команда: 
+разворачиваем promtail : 
 
 ``` 
 helm -n loki upgrade --install -- value promtail-config.yaml promtail grafana/promtail
@@ -80,7 +80,7 @@ config:
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/0c364c31-25ac-4449-8280-3372c2346c73)
 
-далее указываем url для подключения к loki 
+далее указываем url подключения к loki 
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/c0f2272b-5a20-4ae7-8dc2-ee66966f9f8a)
 
@@ -88,7 +88,11 @@ config:
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/e5346363-7bfe-47e0-9014-f7ecc31a4070)
 
-далее можно настроить дашборд для логов ``` https://grafana.com/grafana/dashboards/ ```
+далее можно настроить дашборд для логов 
+``` 
+https://grafana.com/grafana/dashboards/
+
+```
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/49937d56-e26e-4f88-861a-247a67fc3c09)
 
@@ -127,9 +131,7 @@ config:
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/73b5ca14-7c52-490c-afe5-1865cd6d2f52)
 
-Проверяем работу алертов.
-
-приложение не доступно :
+Проверяем работу алертов: 
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/77273018-ded0-4a8f-a806-ed151d2b1421)
 
