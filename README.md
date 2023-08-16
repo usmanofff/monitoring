@@ -70,11 +70,11 @@ helm -n loki upgrade --install -- value promtail-config.yaml promtail grafana/pr
 ```
 
 promtail-config.yaml необходимо указать url для подключения к loki 
-
+```
 config: 
   clients:
      - url: http://51.250.84.184/:3100/loki/api/v1/push
-
+```
      
 Переходим в интерфейс Grafana -- Data Source --- Add new Data Source --- выбираем loki core 
 
