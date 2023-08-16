@@ -33,9 +33,10 @@
 
 ![image](https://github.com/usmanofff/monitoring/assets/74288450/9ba12afd-8f88-4637-82fb-e46be8265d86)
 
-Основной стек мониторинга будет распологатся на SRV, агенты для получения логов и метрик будут установлены в кластер k8s.
+Основной стек мониторинга будет распологатся на SRV.
 
-Для начала создадим namespace  --loki:
+
+Создаем namespace  --loki:
 
 ```kubectl create ns loki```
 
