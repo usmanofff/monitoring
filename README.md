@@ -46,7 +46,10 @@ Grafana и loki будут развернуты на сервере SRV туда
 
 В качестве среды запуска Grafana-loki на сервере был выбран docker.
 
-На сервере SRV скачиваем docker-compose.yml   ``` wget https://raw.githubusercontent.com/grafana/loki/v2.3.0/production/docker-compose.yaml -O docker-compose.yaml ```
+На сервере SRV скачиваем docker-compose.yml   
+``` 
+wget https://raw.githubusercontent.com/grafana/loki/v2.3.0/production/docker-compose.yaml -O docker-compose.yaml
+```
 
 и запускаем командой ``` docker-compose up -d ``` 
 
